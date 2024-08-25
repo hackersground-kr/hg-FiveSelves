@@ -1,4 +1,4 @@
-name: Build, Push Docker Image, and Deploy to Azure
+name: Build and Push Docker Image
 
 on:
   push:
@@ -33,21 +33,3 @@ jobs:
 
       - name: Push Docker image
         run: docker push anys34/five:latest
-
-      - name: Install Azure CLI
-        uses: azure/setup-azure-cli@v2
-
-      - name: Azure Login
-        run: |
-          az login --service-principal \
-            -u ${{ secrets.AZURE_CLIENT_ID }} \
-            -p ${{ secrets.AZURE_SECRET }} \
-            -t ${{ secrets.AZURE_TENANT }}
-
-      - name: Deploy to Azure Container Apps
-        run: |
-          az account set --subscription ${{ secrets.AZURE_SUBSCRIPTION }}
-          az containerapp update \
-            --name five \
-            --resource-group rg-FiveSelves \
-            --image anys34/five:latest
