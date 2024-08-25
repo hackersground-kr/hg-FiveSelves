@@ -1,4 +1,9 @@
-FROM ubuntu:latest
-LABEL authors="anys"
+FROM openjdk:17-slim
 
-ENTRYPOINT ["top", "-b"]
+ENV TZ=Asia/Seoul
+
+ARG JAR_FILE=build/libs/*.jar
+
+COPY ${JAR_FILE} app.jar
+
+ENTRYPOINT ["java", "-jar", "app.jar"]
