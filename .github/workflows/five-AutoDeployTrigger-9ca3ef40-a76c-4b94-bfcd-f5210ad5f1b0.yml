@@ -1,0 +1,47 @@
+name: Trigger auto deployment for five
+
+# When this action will be executed
+on:
+  # Automatically trigger it when detected changes in repo
+  push:
+    branches: 
+      [ backend ]
+    paths:
+    - '**'
+    - '.github/workflows/five-AutoDeployTrigger-9ca3ef40-a76c-4b94-bfcd-f5210ad5f1b0.yml'
+
+  # Allow manual trigger 
+  workflow_dispatch:      
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions: 
+      id-token: write #This is required for requesting the OIDC JWT Token
+      contents: read #Required when GH token is used to authenticate with private repo
+
+    steps:
+      - name: Checkout to the branch
+        uses: actions/checkout@v2
+
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          client-id: ${{ secrets.FIVE_AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.FIVE_AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.FIVE_AZURE_SUBSCRIPTION_ID }}
+
+      - name: Build and push container image to registry
+        uses: azure/container-apps-deploy-action@v2
+        with:
+          appSourcePath: ${{ github.workspace }} 
+          registryUrl: cront4vc2dpcqtm.azurecr.io
+          registryUsername: ${{ secrets.FIVE_REGISTRY_USERNAME }}
+          registryPassword: ${{ secrets.FIVE_REGISTRY_PASSWORD }}
+          containerAppName: five
+          resourceGroup: rg-FiveSelves
+          imageToBuild: cront4vc2dpcqtm.azurecr.io/five:${{ github.sha }}
+          _buildArgumentsKey_: |
+            _buildArgumentsValues_
+
+
