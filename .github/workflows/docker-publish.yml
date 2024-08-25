@@ -42,7 +42,7 @@ jobs:
           az login --service-principal \
             -u ${{ secrets.AZURE_CLIENT_ID }} \
             -p ${{ secrets.AZURE_SECRET }} \
-            --tenant ${{ secrets.AZURE_TENANT }}
+            -t ${{ secrets.AZURE_TENANT }}
 
       - name: Deploy to Azure Container Apps
         run: |
