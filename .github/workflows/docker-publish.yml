@@ -10,22 +10,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    - name: Set up JDK 17
-      uses: actions/setup-java@v2
-      with:
-        java-version: '17'
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
 
-    - name: Build with Gradle
-      run: ./gradlew bootjar
+      - name: gradlew 실행 권한
+        run: chmod +x gradlew
 
-    - name: Log in to Docker Hub
-      run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+      - name: Build with Gradle
+        run: ./gradlew bootjar
 
-    - name: Build Docker image
-      run: docker build -t anys34/five:latest .
+      - name: Log in to Docker Hub
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
-    - name: Push Docker image
-      run: docker push anys34/five:latest
+      - name: Build Docker image
+        run: docker build -t anys34/five:latest .
+
+      - name: Push Docker image
+        run: docker push anys34/five:latest
