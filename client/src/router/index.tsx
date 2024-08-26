@@ -6,6 +6,7 @@ import Main from 'pages/Main';
 import Result from 'pages/Result';
 import Upload from 'pages/Upload';
 import Notification from 'pages/Notification';
+import Profile from 'pages/Profile';
 
 export default function Router() {
   return useRoutes([
@@ -15,9 +16,10 @@ export default function Router() {
         { path: '/', element: <Main /> },
         { path: 'search-result/:product', element: <Result /> },
         { path: 'search-history', element: <History /> },
-        { path: 'goodsDetail', element: <GoodsDetail /> },
+        { path: 'goodsDetail/:id', element: <GoodsDetail /> },
         { path: 'upload', element: <Upload /> },
-        { path: 'notification', element: <Notification /> }
+        { path: 'notification', element: <Notification /> },
+        { path: 'profile/:id', element: <Profile /> }
       ]
     }
   ]);

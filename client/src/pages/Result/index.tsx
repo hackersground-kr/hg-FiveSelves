@@ -25,7 +25,7 @@ const Result = () => {
         ))}
       </_.Result_ProductList>
 
-      <MenuBar selectState={selectState} setSelectState={setSelectState} />
+      <MenuBar />
     </_.Result_Layout>
   );
 };

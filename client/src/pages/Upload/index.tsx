@@ -20,7 +20,7 @@ const Upload = () => {
     }
   };
 
-  return ( 
+  return (
     <S.Layout>
       <S.Title>상품 등록</S.Title>
       <S.ImgLayout>
@@ -63,7 +63,7 @@ const Upload = () => {
         </S.NameLayout>
       </S.InputsLayout>
       <S.Submit>제출하기</S.Submit>
-      <MenuBar selectState={selectState} setSelectState={setSelectState} />
+      <MenuBar />
     </S.Layout>
   );
 };

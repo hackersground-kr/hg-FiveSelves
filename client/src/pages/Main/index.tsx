@@ -13,7 +13,6 @@ const Main = () => {
   const navigate = useNavigate();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [searchInput, setSearchInput] = useState('');
-  const [selectState, setSelectState] = useState(1);
 
   const imageData = [
     { label: 'Image 1', alt: 'image1', url: Apple },
@@ -63,10 +62,7 @@ const Main = () => {
         </Carousel>
       </_.CustomCarousel>
       {renderProductList()}
-      <BottomNavigationBar
-        selectState={selectState}
-        setSelectState={setSelectState}
-      />
+      <BottomNavigationBar />
     </_.Main_Layout>
   );
 };
