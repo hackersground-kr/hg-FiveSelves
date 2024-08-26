@@ -77,16 +77,16 @@
 
 #### 중요!
 
-<img width="752" alt="스크린샷 2024-08-26 오후 6 14 26" src="https://github.com/user-attachments/assets/0e32d258-b03e-4a84-bbd6-10d7e535ad45">
-
-main 브랜치를 선택해주어야한다.
-
 조직 : {자기 GitHub ID} <br>
 레포지토리 : {바꾸지 않았다면 hg-FiveSelves 포크할때 바꿔다면 바꾼 레포 이름} <br>
 브랜치 : {main} <br>
 
+<img width="752" alt="스크린샷 2024-08-26 오후 6 14 26" src="https://github.com/user-attachments/assets/0e32d258-b03e-4a84-bbd6-10d7e535ad45">
+
+main 브랜치를 선택해주어야한다.
+
 그리고 조금 기다리면 빌드세부 정보를 선택할 수 있는데 거기서
-앱 위치를 ./clinet로 설정해준다. (보통은 자동으로 된다.)
+앱 위치를 ./client로 설정해준다. (보통은 자동으로 된다.)
 
 <img width="413" alt="스크린샷 2024-08-26 오전 9 48 24" src="https://github.com/user-attachments/assets/0b864fec-0c55-428c-9a9c-7cf244a189aa">
 
@@ -133,7 +133,7 @@ URL 부분을 확인하면 배포 URL을 확인할 수 있다.
 깃허브에 push를 하게되면 자동으로 CI/CD가 작동하는 것을 확인할 수 있다.
 
 
-# 시작하기 (Server)
+# 시작하기 (Server) - 만약 선행에 있었던 client부분 중 fork내용을 따라하셨다면 아래에 있는 fork부분은 생략이 가능합니다.
 
 <img width="1710" alt="스크린샷 2024-08-26 오후 4 57 26" src="https://github.com/user-attachments/assets/77adf1bb-9c63-4bfa-879f-2e359fee5d8b">
 
@@ -152,21 +152,23 @@ Settings로 넘어가기
 <img width="1470" alt="스크린샷 2024-08-26 오후 6 42 13" src="https://github.com/user-attachments/assets/c98c05d6-5a5f-4a0d-ac1d-131c02877e54">
 Secrets and variables > Actions > new Repository secret을 누른 후
 <img width="1470" alt="스크린샷 2024-08-26 오후 6 43 54" src="https://github.com/user-attachments/assets/f677ca83-85dd-4748-982b-b5c623e36d43">
-name - DOCKER_NICKNAME
+위에 있는 사진의 공란에 맞게 아래의 내용을 수행
 
-Secret - 도커 유저 닉네임
+Name - DOCKER_NICKNAME
 
-이것을 한번더 반복
-
-name - DOCKER_USERNAME
-
-Secret - 도커 유저 네임
+Secret - {도커 유저 닉네임}
 
 이것을 한번더 반복
 
-name - DOCKER_PASSWORD
+Name - DOCKER_USERNAME
 
-Secret - 도커 비밀번호 입력
+Secret - {도커 유저 네임}
+
+이것을 한번더 반복
+
+Name - DOCKER_PASSWORD
+
+Secret - {도커 비밀번호 입력}
 
 <img width="1470" alt="스크린샷 2024-08-26 오후 11 26 07" src="https://github.com/user-attachments/assets/12c0f913-5f0d-491e-b124-982921674356">
 Build and Push Docker Image > Run workflow > Run workflow
