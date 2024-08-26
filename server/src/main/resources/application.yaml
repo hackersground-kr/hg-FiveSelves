@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://59.28.151.212:3306/five
+    url: ${URL:jdbc:mysql://59.28.151.212:3306/five}
     username: hash
     password: dbwoharojlecszs
 
@@ -25,7 +25,7 @@ spring:
 auth:
   google:
     base-url: https://accounts.google.com/o/oauth2/auth
-    client-id: 582862839129-ati79d5ean376nbradcej6qjok6hkcfh.apps.googleusercontent.com
+    client-id: ${CLIENT:582862839129-ati79d5ean376nbradcej6qjok6hkcfh.apps.googleusercontent.com}
     redirect-url: http://localhost:3000/google/callback
 
 jwt:
@@ -37,5 +37,5 @@ jwt:
 
 azure:
   storage:
-    connection-string: DefaultEndpointsProtocol=https;AccountName=fiveselves;AccountKey=4uRmovC9HvJbPXAJsxza2eXJV/A+B9rVHmf+d4lkE6CUoaoHP62baTO5be5d6mub0Lgu/thJ5qhC+ASthHc/Sw==;EndpointSuffix=core.windows.net
+    connection-string: %{CONNECTION:DefaultEndpointsProtocol=https;AccountName=fiveselves;AccountKey=4uRmovC9HvJbPXAJsxza2eXJV/A+B9rVHmf+d4lkE6CUoaoHP62baTO5be5d6mub0Lgu/thJ5qhC+ASthHc/Sw==;EndpointSuffix=core.windows.net}
     container-name: five
