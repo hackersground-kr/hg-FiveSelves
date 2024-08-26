@@ -1,19 +1,41 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import * as _ from './style';
 import SearchBar from 'components/SearchBar';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 import Apple from 'assets/image/Apple.png';
 import Product from 'components/Product';
-import { itemList } from 'data/itemList';
 import BottomNavigationBar from 'components/MenuBar';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
-const Main = () => {
+interface AxiosDataType {
+  id: number;
+  title: string;
+  price: number;
+  image: string;
+  grade: string;
+}
+
+const Main: React.FC = () => {
   const navigate = useNavigate();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [searchInput, setSearchInput] = useState('');
+  const [axiosData, setAxiosData] = useState<AxiosDataType[]>([]);
 
+  useEffect(() => {
+    axios
+      .get<AxiosDataType[]>(`http://211.112.175.88:8080/post`)
+      .then((response) => {
+        setAxiosData(response.data);
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.error('데이터를 가져오는 중 오류 발생:', error);
+      });
+  }, []);
+
+  console.log(axiosData);
   const imageData = [
     { label: 'Image 1', alt: 'image1', url: Apple },
     { label: 'Image 2', alt: 'image2', url: Apple },
@@ -32,10 +54,9 @@ const Main = () => {
 
   const renderProductList = () => (
     <_.Main_ProductList>
-      {itemList.map((product, index) => (
-        <div onClick={() => navigate('/goodsDetail')}>
+      {axiosData.map((product, index) => (
+        <div key={index} onClick={() => navigate(`/goodsDetail/${product.id}`)}>
           <Product
-            key={index}
             image={product.image}
             title={product.title}
             grade={product.grade}

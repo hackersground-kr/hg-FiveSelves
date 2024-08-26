@@ -8,6 +8,7 @@ import Upload from 'pages/Upload';
 import Notification from 'pages/Notification';
 import Profile from 'pages/Profile';
 import Auth from 'pages/Auth';
+import Callback from 'pages/Callback';
 
 export default function Router() {
   return useRoutes([
@@ -21,7 +22,8 @@ export default function Router() {
         { path: 'goodsDetail/:id', element: <GoodsDetail /> },
         { path: 'upload', element: <Upload /> },
         { path: 'notification', element: <Notification /> },
-        { path: 'profile/:id', element: <Profile /> }
+        { path: 'profile/:id', element: <Profile /> },
+        { path: 'google/callback', element: <Callback /> }
       ]
     }
   ]);
