@@ -34,6 +34,20 @@ jobs:
       - name: Push Docker image
         run: docker push anys34/five:latest
 
+      - name: Docker Login
+        uses: azure/docker-login@v1
+        with:
+          login-server: contoso.azurecr.io
+          username: ${{ secrets.ACR_USERNAME }}
+          password: ${{ secrets.ACR_PASSWORD }}
+
+      - name: Build the frontend image and push it to ACR
+        uses: docker/build-push-action@v5
+        with:
+          push: true
+          tags: contoso.azurecr.io/five:latest
+          file: ./Dockerfile
+
       - name: Log in with Azure
         uses: azure/login@v1
         with:
