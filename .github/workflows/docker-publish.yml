@@ -25,21 +25,14 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew bootjar
 
-      - name: Log in to Azure Container Registry (ACR)
-        uses: azure/docker-login@v1
-        with:
-          login-server: fiveselves.azurecr.io
-          username: ${{ secrets.ACR_USERNAME }}
-          password: ${{ secrets.ACR_PASSWORD }}
-
-      - run: |
-          docker build . -t fiveselves.azurecr.io/five:latest
-          docker push fiveselves.azurecr.io/five:latest
-
       - name: Log in with Azure
         uses: azure/login@v1
         with:
           creds: '${{ secrets.AZURE_CREDENTIALS }}'
+
+      - run: |
+          docker build . -t fiveselves.azurecr.io/five:latest
+          docker push fiveselves.azurecr.io/five:latest
 
       - name: Deploy Container App to Azure
         uses: azure/container-apps-deploy-action@v1
