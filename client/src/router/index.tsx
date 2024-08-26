@@ -7,6 +7,7 @@ import Result from 'pages/Result';
 import Upload from 'pages/Upload';
 import Notification from 'pages/Notification';
 import Profile from 'pages/Profile';
+import Auth from 'pages/Auth';
 
 export default function Router() {
   return useRoutes([
@@ -14,6 +15,7 @@ export default function Router() {
       path: '/',
       children: [
         { path: '/', element: <Main /> },
+        { path: 'auth', element: <Auth /> },
         { path: 'search-result/:product', element: <Result /> },
         { path: 'search-history', element: <History /> },
         { path: 'goodsDetail/:id', element: <GoodsDetail /> },
