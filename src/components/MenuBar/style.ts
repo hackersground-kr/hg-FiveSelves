@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const MenuBar_Container = styled.div`
   width: 100vw;
-  height: 90px;
+  height: 60px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -12,7 +12,7 @@ export const MenuBar_Container = styled.div`
   z-index: 9999;
   bottom: 0px;
   right: 0;
-  padding: 0 40px 20px 40px;
+  padding: 0 40px;
   background-color: ${theme.uncategorized.White};
 `;
 
