@@ -27,9 +27,11 @@ const SearchBar = ({
     setIsSearchFocused(true);
   };
 
+  const isSearchResult = window.location.pathname === '/search-result';
+
   return (
     <_.SearchBar_Layout>
-      {searchInput && <BackIcon />}
+      {isSearchResult && <BackIcon />}
       <_.SearchBar_Container>
         <Search />
         <_.SearchBar_Input
