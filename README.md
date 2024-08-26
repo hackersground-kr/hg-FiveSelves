@@ -77,16 +77,16 @@
 
 #### 중요!
 
-<img width="752" alt="스크린샷 2024-08-26 오후 6 14 26" src="https://github.com/user-attachments/assets/0e32d258-b03e-4a84-bbd6-10d7e535ad45">
-
-main 브랜치를 선택해주어야한다.
-
 조직 : {자기 GitHub ID} <br>
 레포지토리 : {바꾸지 않았다면 hg-FiveSelves 포크할때 바꿔다면 바꾼 레포 이름} <br>
 브랜치 : {main} <br>
 
+<img width="752" alt="스크린샷 2024-08-26 오후 6 14 26" src="https://github.com/user-attachments/assets/0e32d258-b03e-4a84-bbd6-10d7e535ad45">
+
+main 브랜치를 선택해주어야한다.
+
 그리고 조금 기다리면 빌드세부 정보를 선택할 수 있는데 거기서
-앱 위치를 ./clinet로 설정해준다. (보통은 자동으로 된다.)
+앱 위치를 ./client로 설정해준다. (보통은 자동으로 된다.)
 
 <img width="413" alt="스크린샷 2024-08-26 오전 9 48 24" src="https://github.com/user-attachments/assets/0b864fec-0c55-428c-9a9c-7cf244a189aa">
 
@@ -133,7 +133,7 @@ URL 부분을 확인하면 배포 URL을 확인할 수 있다.
 깃허브에 push를 하게되면 자동으로 CI/CD가 작동하는 것을 확인할 수 있다.
 
 
-# 시작하기 (Server)
+# 시작하기 (Server) - 만약 선행에 있었던 client부분 중 fork내용을 따라하셨다면 아래에 있는 fork부분은 생략이 가능합니다.
 
 <img width="1710" alt="스크린샷 2024-08-26 오후 4 57 26" src="https://github.com/user-attachments/assets/77adf1bb-9c63-4bfa-879f-2e359fee5d8b">
 
@@ -152,21 +152,35 @@ Settings로 넘어가기
 <img width="1470" alt="스크린샷 2024-08-26 오후 6 42 13" src="https://github.com/user-attachments/assets/c98c05d6-5a5f-4a0d-ac1d-131c02877e54">
 Secrets and variables > Actions > new Repository secret을 누른 후
 <img width="1470" alt="스크린샷 2024-08-26 오후 6 43 54" src="https://github.com/user-attachments/assets/f677ca83-85dd-4748-982b-b5c623e36d43">
-name - DOCKER_NICKNAME
+위에 있는 사진의 공란에 맞게 아래의 내용을 수행
 
-Secret - 도커 유저 닉네임
+Name - DOCKER_NICKNAME
 
-이것을 한번더 반복
-
-name - DOCKER_USERNAME
-
-Secret - 도커 유저 네임
+Secret - {도커 유저 닉네임}
 
 이것을 한번더 반복
 
-name - DOCKER_PASSWORD
+Name - DOCKER_USERNAME
 
-Secret - 도커 비밀번호 입력
+Secret - {도커 유저 네임}
+
+이것을 한번더 반복
+
+Name - DOCKER_PASSWORD
+
+Secret - {도커 비밀번호 입력}
+
+* NICKNAME, USERNAME, PASSWORD이란?
+
+https://login.docker.com에서 첫 번째 공란이 USERNAME, 아래에 비밀번호 부분이 PASSWORD
+
+<img width="438" alt="스크린샷 2024-08-27 오전 12 28 39" src="https://github.com/user-attachments/assets/b8d8c2d6-3c9e-40a7-aa45-46ba81adc331">
+
+위에 과정을 토대로 로그인을 한 후
+
+<img width="1470" alt="스크린샷 2024-08-27 오전 12 29 51" src="https://github.com/user-attachments/assets/6d68f155-7b04-41e4-91a5-ba5a169de18e">
+
+프로필 사진을 누르면 나오는 닉네임이 즉 NICKNAME됩니다.
 
 <img width="1470" alt="스크린샷 2024-08-26 오후 11 26 07" src="https://github.com/user-attachments/assets/12c0f913-5f0d-491e-b124-982921674356">
 Build and Push Docker Image > Run workflow > Run workflow
@@ -217,7 +231,7 @@ Build and Push Docker Image > Run workflow > Run workflow
 이미지 형식 - '공개' 선택
 이미지 및 태그 - '{docker 아이디}/five:latest' 입력 (중괄호 안에는 자신의 도커 아이디 작성)
 
-수신으로 넘어가기
+바인딩을 지나 수신으로 넘어가기
 
 ### Step11. 수신
 <img width="1470" alt="스크린샷 2024-08-26 오후 5 30 41" src="https://github.com/user-attachments/assets/3c8cb964-1333-4484-9a84-eb10e36b5fe5">
@@ -256,3 +270,31 @@ Build and Push Docker Image > Run workflow > Run workflow
 
 ----
 이제 메인브렌치가 바뀔 때 마다 배포가 됩니당
+
+### 번외
+<img width="1298" alt="스크린샷 2024-08-27 오전 1 05 52" src="https://github.com/user-attachments/assets/ff0315c0-c688-44b3-9087-ba0009a516ec">
+
+만약 빌드를 하는 과정중에 이 에러가 발생한다면...
+
+<img width="826" alt="스크린샷 2024-08-27 오전 1 07 23" src="https://github.com/user-attachments/assets/3bc0ee44-616c-4400-87ca-298b6430e6b3">
+
+<img width="584" alt="스크린샷 2024-08-27 오전 1 07 40" src="https://github.com/user-attachments/assets/88396e10-51a9-4c28-9820-4a3908244b3a">
+
+에저에가서 이 토큰을 메모해두고
+
+<img width="1383" alt="스크린샷 2024-08-27 오전 1 10 07" src="https://github.com/user-attachments/assets/c5f2e86c-6ce0-4f36-9cfb-73740b499761">
+
+WorkFlow File을 클릭해서 에저 시크릿키 이름을 메모한다.
+
+<img width="792" alt="스크린샷 2024-08-27 오전 1 10 33" src="https://github.com/user-attachments/assets/3c245f01-2722-40dd-b608-fc15d075aac4">
+
+위에는 시크릿키 이름을 밑에는 에저에서 복사한 시크릿키를 넣어주면
+
+<img width="1282" alt="스크린샷 2024-08-27 오전 1 14 45" src="https://github.com/user-attachments/assets/2e605ee3-5f39-4d78-9b21-17f8c32942b9">
+
+정상적으로 잘 작동한다.
+
+
+
+
+
