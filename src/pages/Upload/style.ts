@@ -1,6 +1,5 @@
 import { theme } from 'lib/utils/style/theme';
 import styled from 'styled-components';
-import DownArrow from 'assets/icon/Down.svg';
 
 export const Layout = styled.div`
   padding: 24px 20px 114px 20px;

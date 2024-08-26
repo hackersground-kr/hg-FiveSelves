@@ -5,6 +5,7 @@ import GoodsDetail from 'pages/GoodsDetail';
 import Main from 'pages/Main';
 import Result from 'pages/Result';
 import Upload from 'pages/Upload';
+import Notification from 'pages/Notification';
 
 export default function Router() {
   return useRoutes([
@@ -15,7 +16,8 @@ export default function Router() {
         { path: 'search-result/:product', element: <Result /> },
         { path: 'search-history', element: <History /> },
         { path: 'goodsDetail', element: <GoodsDetail /> },
-        { path: 'upload', element: <Upload /> }
+        { path: 'upload', element: <Upload /> },
+        { path: 'notification', element: <Notification /> }
       ]
     }
   ]);
