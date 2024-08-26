@@ -33,3 +33,13 @@ jobs:
 
       - name: Push Docker image
         run: docker push anys34/five:latest
+
+      - name: Log in with Azure
+        uses: azure/login@v1
+        with:
+          creds: '${{ secrets.AZURE_CREDENTIALS }}'
+
+      - name: Build and deploy Container App
+        uses: azure/container-apps-deploy-action@v1
+        with:
+          imageToDeploy: docker.io/anys34/five:latest
