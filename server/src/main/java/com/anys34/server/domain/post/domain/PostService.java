@@ -20,6 +20,7 @@ public class PostService {
         return postRepository.save(request.toEntity(currentUser)).getId();
     }
 
+    @Transactional
     public List<PostResponse> list() {
         return postRepository.findAll().stream()
                 .map(PostResponse::new)
