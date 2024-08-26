@@ -9,6 +9,8 @@ import lombok.NoArgsConstructor;
 public class PostResponse {
     private Long id;
     private String title;
+    private String content;
+    private String image;
     private int price;
     private Grade grade;
 
@@ -16,6 +18,8 @@ public class PostResponse {
         this.id = post.getId();
         this.title = post.getTitle();
         this.price = post.getPrice();
+        this.content = post.getContent();
+        this.image = post.getImage();
         this.grade = post.getGrade();
     }
 }
