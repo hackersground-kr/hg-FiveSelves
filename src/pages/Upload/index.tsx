@@ -20,7 +20,7 @@ const Upload = () => {
     }
   };
 
-  return (
+  return ( 
     <S.Layout>
       <S.Title>상품 등록</S.Title>
       <S.ImgLayout>
@@ -38,7 +38,7 @@ const Upload = () => {
       <S.InputsLayout>
         <S.NameLayout>
           <S.Category>상품명</S.Category>
-          <S.Input placeholder='예) 의성 마늘' />
+          <S.Input placeholder="예) 의성 마늘" />
         </S.NameLayout>
         <S.NameLayout>
           <S.Category>등급 (자동 설정)</S.Category>
@@ -46,15 +46,20 @@ const Upload = () => {
         </S.NameLayout>
         <S.NameLayout>
           <S.Category>판매가 (원)</S.Category>
-          <S.Input placeholder='예) 15' type='number' inputMode='numeric' pattern="[0-9]*" />
+          <S.Input
+            placeholder="예) 15"
+            type="number"
+            inputMode="numeric"
+            pattern="[0-9]*"
+          />
         </S.NameLayout>
         <S.NameLayout>
           <S.Category>원산지</S.Category>
-          <S.Input placeholder='예) 경상북도 의성군' />
+          <S.Input placeholder="예) 경상북도 의성군" />
         </S.NameLayout>
         <S.NameLayout>
           <S.Category>판매수량 (낱개)</S.Category>
-          <S.Input placeholder='예) 30' />
+          <S.Input placeholder="예) 30" />
         </S.NameLayout>
       </S.InputsLayout>
       <S.Submit>제출하기</S.Submit>
