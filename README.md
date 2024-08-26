@@ -270,3 +270,31 @@ Build and Push Docker Image > Run workflow > Run workflow
 
 ----
 이제 메인브렌치가 바뀔 때 마다 배포가 됩니당
+
+### 번외
+<img width="1298" alt="스크린샷 2024-08-27 오전 1 05 52" src="https://github.com/user-attachments/assets/ff0315c0-c688-44b3-9087-ba0009a516ec">
+
+만약 빌드를 하는 과정중에 이 에러가 발생한다면...
+
+<img width="826" alt="스크린샷 2024-08-27 오전 1 07 23" src="https://github.com/user-attachments/assets/3bc0ee44-616c-4400-87ca-298b6430e6b3">
+
+<img width="584" alt="스크린샷 2024-08-27 오전 1 07 40" src="https://github.com/user-attachments/assets/88396e10-51a9-4c28-9820-4a3908244b3a">
+
+에저에가서 이 토큰을 메모해두고
+
+<img width="1383" alt="스크린샷 2024-08-27 오전 1 10 07" src="https://github.com/user-attachments/assets/c5f2e86c-6ce0-4f36-9cfb-73740b499761">
+
+WorkFlow File을 클릭해서 에저 시크릿키 이름을 메모한다.
+
+<img width="792" alt="스크린샷 2024-08-27 오전 1 10 33" src="https://github.com/user-attachments/assets/3c245f01-2722-40dd-b608-fc15d075aac4">
+
+위에는 시크릿키 이름을 밑에는 에저에서 복사한 시크릿키를 넣어주면
+
+<img width="1282" alt="스크린샷 2024-08-27 오전 1 14 45" src="https://github.com/user-attachments/assets/2e605ee3-5f39-4d78-9b21-17f8c32942b9">
+
+정상적으로 잘 작동한다.
+
+
+
+
+
