@@ -29,9 +29,9 @@ const db = require('./models');
 // const ApiRouter = require('./routes/');
 // app.use('/', ApiRouter);
 
-app.use('/', (res, req) => {
-  res.send("Hello World");
-})
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
 
 // Port
 // db.sequelize.sync().then(() => {
