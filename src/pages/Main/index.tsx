@@ -10,7 +10,7 @@ import BottomNavigationBar from 'components/MenuBar';
 import { useNavigate } from 'react-router-dom';
 
 const Main = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [searchInput, setSearchInput] = useState('');
   const [selectState, setSelectState] = useState(1);
@@ -34,14 +34,14 @@ const Main = () => {
   const renderProductList = () => (
     <_.Main_ProductList>
       {itemList.map((product, index) => (
-        <div onClick={() => navigate("/goodsDetail")}>
-        <Product
-          key={index}
-          image={product.image}
-          title={product.title}
-          grade={product.grade}
-          price={product.price}
-        />
+        <div onClick={() => navigate('/goodsDetail')}>
+          <Product
+            key={index}
+            image={product.image}
+            title={product.title}
+            grade={product.grade}
+            price={product.price}
+          />
         </div>
       ))}
     </_.Main_ProductList>

@@ -13,11 +13,7 @@ const Result = () => {
 
   return (
     <_.Result_Layout>
-      <SearchBar
-        searchInput={searchInput}
-        setSearchInput={setSearchInput}
-        setIsSearchFocused={setIsSearchFocused}
-      />
+      <SearchBar searchInput={searchInput} setSearchInput={setSearchInput} />
       <_.Result_ProductList>
         {itemList.map((product, index) => (
           <Product

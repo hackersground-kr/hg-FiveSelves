@@ -4,8 +4,8 @@ import * as S from './style';
 import Bookmark from 'assets/icon/Bookmark';
 import BackIcon from 'assets/icon/BackIcon';
 import Tomato1 from 'assets/image/Tomato.png';
-import Tomato2 from 'assets/image/Tomato2.png'
-import Tomato3 from 'assets/image/Tomato3.png'
+import Tomato2 from 'assets/image/Tomato2.png';
+import Tomato3 from 'assets/image/Tomato3.png';
 import { Carousel } from 'react-responsive-carousel';
 import { useNavigate } from 'react-router-dom';
 
