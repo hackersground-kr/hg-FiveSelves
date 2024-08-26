@@ -1,5 +1,4 @@
-/*eslint-disable*/
-import React, { InputHTMLAttributes, useState } from 'react';
+import React from 'react';
 import * as _ from './style';
 import Search from 'assets/icon/Search';
 import X from 'assets/icon/X';
@@ -8,15 +7,24 @@ import BackIcon from 'assets/icon/BackIcon';
 interface OwnProps {
   searchInput: string;
   setSearchInput: React.Dispatch<React.SetStateAction<string>>;
+  setIsSearchFocused: React.Dispatch<React.SetStateAction<boolean>>; // 추가
 }
 
-const SearchBar = ({ searchInput, setSearchInput }: OwnProps) => {
+const SearchBar = ({
+  searchInput,
+  setSearchInput,
+  setIsSearchFocused
+}: OwnProps) => {
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchInput(e.target.value);
   };
 
   const handleClearInput = () => {
     setSearchInput('');
+  };
+
+  const handleFocus = () => {
+    setIsSearchFocused(true);
   };
 
   return (
@@ -28,6 +36,7 @@ const SearchBar = ({ searchInput, setSearchInput }: OwnProps) => {
           placeholder="상품명, 태그 등"
           value={searchInput}
           onChange={handleSearch}
+          onFocus={handleFocus}
         />
         <div onClick={handleClearInput}>
           <X />

@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 import React, { useState } from 'react';
 import * as _ from './style';
 import SearchBar from 'components/SearchBar';
@@ -15,6 +13,7 @@ const Main = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [searchInput, setSearchInput] = useState('');
   const [selectState, setSelectState] = useState(1);
+  const [isSearchFocused, setIsSearchFocused] = useState(false); // 추가
 
   const imageData = [
     { label: 'Image 1', alt: 'image1', url: Apple },
@@ -63,8 +62,12 @@ const Main = () => {
 
   return (
     <_.Main_Layout>
-      <SearchBar searchInput={searchInput} setSearchInput={setSearchInput} />
-      {searchInput ? (
+      <SearchBar
+        searchInput={searchInput}
+        setSearchInput={setSearchInput}
+        setIsSearchFocused={setIsSearchFocused}
+      />
+      {isSearchFocused ? (
         renderSearchHistory()
       ) : (
         <>
