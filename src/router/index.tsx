@@ -1,4 +1,4 @@
-import History from 'pages/\bHistory';
+import History from 'pages/History';
 import Main from 'pages/Main';
 import Result from 'pages/Result';
 import { useRoutes } from 'react-router-dom';
