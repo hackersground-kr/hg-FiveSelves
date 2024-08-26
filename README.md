@@ -231,7 +231,7 @@ Build and Push Docker Image > Run workflow > Run workflow
 이미지 형식 - '공개' 선택
 이미지 및 태그 - '{docker 아이디}/five:latest' 입력 (중괄호 안에는 자신의 도커 아이디 작성)
 
-수신으로 넘어가기
+바인딩을 지나 수신으로 넘어가기
 
 ### Step11. 수신
 <img width="1470" alt="스크린샷 2024-08-26 오후 5 30 41" src="https://github.com/user-attachments/assets/3c8cb964-1333-4484-9a84-eb10e36b5fe5">
