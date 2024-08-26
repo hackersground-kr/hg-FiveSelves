@@ -170,6 +170,18 @@ Name - DOCKER_PASSWORD
 
 Secret - {도커 비밀번호 입력}
 
+* NICKNAME, USERNAME, PASSWORD이란?
+
+https://login.docker.com에서 첫 번째 공란이 USERNAME, 아래에 비밀번호 부분이 PASSWORD
+
+<img width="438" alt="스크린샷 2024-08-27 오전 12 28 39" src="https://github.com/user-attachments/assets/b8d8c2d6-3c9e-40a7-aa45-46ba81adc331">
+
+위에 과정을 토대로 로그인을 한 후
+
+<img width="1470" alt="스크린샷 2024-08-27 오전 12 29 51" src="https://github.com/user-attachments/assets/6d68f155-7b04-41e4-91a5-ba5a169de18e">
+
+프로필 사진을 누르면 나오는 닉네임이 즉 NICKNAME됩니다.
+
 <img width="1470" alt="스크린샷 2024-08-26 오후 11 26 07" src="https://github.com/user-attachments/assets/12c0f913-5f0d-491e-b124-982921674356">
 Build and Push Docker Image > Run workflow > Run workflow
 
