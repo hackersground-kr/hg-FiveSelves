@@ -6,6 +6,8 @@ import SearchBar from 'components/SearchBar';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 import Apple from 'assets/image/Apple.png';
+import Product from 'components/Product';
+import { itemList } from 'data/itemList';
 
 const Main = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -55,6 +57,19 @@ const Main = () => {
           {renderSlides}
         </Carousel>
       </_.CustomCarousel>
+      <_.Main_ProductList>
+        {itemList.map((product, index) => (
+          <Product
+            key={index}
+            image={product.image}
+            title={product.title}
+            grade={product.grade}
+            price={product.price}
+            isFirst={index === 0}
+            isLast={index === itemList.length - 1}
+          />
+        ))}
+      </_.Main_ProductList>
     </_.Main_Layout>
   );
 };

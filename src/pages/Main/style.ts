@@ -45,3 +45,9 @@ export const CustomCarousel = styled.div`
     height: 6px;
   }
 `;
+
+export const Main_ProductList = styled.div`
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+`;
