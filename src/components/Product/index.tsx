@@ -8,13 +8,11 @@ interface OwnProps {
   title: string;
   grade: string;
   price: string;
-  isFirst: boolean;
-  isLast: boolean;
 }
 
-const Product = ({ image, title, grade, price, isFirst, isLast }: OwnProps) => {
+const Product = ({ image, title, grade, price }: OwnProps) => {
   return (
-    <_.Product_Layout isFirst={isFirst} isLast={isLast}>
+    <_.Product_Layout>
       <_.Product_Image src={image} alt="상품" />
       <_.Product_Content>
         <_.Product_Title>{title}</_.Product_Title>

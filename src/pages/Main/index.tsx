@@ -8,9 +8,12 @@ import { Carousel } from 'react-responsive-carousel';
 import Apple from 'assets/image/Apple.png';
 import Product from 'components/Product';
 import { itemList } from 'data/itemList';
+import SmallX from 'assets/icon/SmallX';
 
 const Main = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [searchInput, setSearchInput] = useState('');
+
   const imageData = [
     {
       label: 'Image 1',
@@ -44,32 +47,47 @@ const Main = () => {
 
   return (
     <_.Main_Layout>
-      <SearchBar />
-      <_.CustomCarousel>
-        <Carousel
-          showArrows={false}
-          autoPlay={true}
-          showThumbs={false}
-          selectedItem={currentIndex}
-          onChange={handleChange}
-          showStatus={false}
-        >
-          {renderSlides}
-        </Carousel>
-      </_.CustomCarousel>
-      <_.Main_ProductList>
-        {itemList.map((product, index) => (
-          <Product
-            key={index}
-            image={product.image}
-            title={product.title}
-            grade={product.grade}
-            price={product.price}
-            isFirst={index === 0}
-            isLast={index === itemList.length - 1}
-          />
-        ))}
-      </_.Main_ProductList>
+      <SearchBar searchInput={searchInput} setSearchInput={setSearchInput} />
+      {searchInput ? (
+        <>
+          <_.Main_Top>
+            <_.Main_Latest>최근 검색어</_.Main_Latest>
+            <_.Main_Erase>지우기</_.Main_Erase>
+          </_.Main_Top>
+          <_.Main_HistoryList>
+            <_.Main_History>
+              <_.Main_ProductName>풋사과</_.Main_ProductName>
+              <SmallX />
+            </_.Main_History>
+          </_.Main_HistoryList>
+        </>
+      ) : (
+        <>
+          <_.CustomCarousel>
+            <Carousel
+              showArrows={false}
+              autoPlay={true}
+              showThumbs={false}
+              selectedItem={currentIndex}
+              onChange={handleChange}
+              showStatus={false}
+            >
+              {renderSlides}
+            </Carousel>
+          </_.CustomCarousel>
+          <_.Main_ProductList>
+            {itemList.map((product, index) => (
+              <Product
+                key={index}
+                image={product.image}
+                title={product.title}
+                grade={product.grade}
+                price={product.price}
+              />
+            ))}
+          </_.Main_ProductList>
+        </>
+      )}
     </_.Main_Layout>
   );
 };
