@@ -13,7 +13,7 @@ interface OwnProps {
 const Product = ({ image, title, grade, price }: OwnProps) => {
   const formattedPrice = new Intl.NumberFormat('ko-KR', {
     style: 'currency',
-    currency: 'KRW',
+    currency: 'KRW'
   }).format(price);
 
   return (

@@ -70,13 +70,14 @@ export const FileInput = styled.input`
   opacity: 0;
   cursor: pointer;
 `;
-export const Submit = styled.button`
+export const Submit = styled.button<{ disabled: boolean }>`
   display: flex;
-  width: 350px;
+  width: 100%;
   justify-content: center;
   align-items: center;
   border-radius: 8px;
-  background: ${theme.green[400]};
+  background: ${(props) =>
+    props.disabled ? theme.grey[400] : theme.green[400]};
   border: none;
   padding: 14px 0;
   color: ${theme.uncategorized.White};

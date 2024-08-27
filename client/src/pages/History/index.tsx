@@ -3,6 +3,7 @@ import * as _ from './style';
 import SmallX from 'assets/icon/SmallX';
 import SearchBar from 'components/SearchBar';
 import { useParams } from 'react-router-dom';
+import MenuBar from 'components/MenuBar';
 
 const History = () => {
   const { product } = useParams<{ product: string }>();
@@ -32,6 +33,7 @@ const History = () => {
           <SmallX />
         </_.History_History>
       </_.History_HistoryList>
+      <MenuBar />
     </_.History_Layout>
   );
 };

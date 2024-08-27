@@ -18,21 +18,18 @@ interface RequestData {
   image: string;
   grade: string;
   price: number;
-  origin: string;
-  quantity: number;
+  too: string;
 }
 
 const Upload: React.FC = () => {
   const history = useNavigate();
-  const [selectState, setSelectState] = useState<number>(2);
   const [requestData, setRequestData] = useState<RequestData>({
     title: '',
     content: '',
     image: '',
     grade: '',
     price: 0,
-    origin: '',
-    quantity: 0
+    too: ''
   });
 
   const [image, setImage] = useState<string | null>(null);
@@ -75,11 +72,25 @@ const Upload: React.FC = () => {
 
       console.log('Prediction result:', predictionResponse.data);
 
-      const bestPrediction = predictionResponse.data.predictions.reduce(
+      let bestPrediction = predictionResponse.data.predictions.reduce(
         (max, prediction) =>
           prediction.probability > max.probability ? prediction : max,
         predictionResponse.data.predictions[0]
       );
+
+      switch (bestPrediction.tagName) {
+        case '1':
+          bestPrediction.tagName = 'A';
+          break;
+        case '2':
+          bestPrediction.tagName = 'B';
+          break;
+        case '3':
+          bestPrediction.tagName = 'C';
+          break;
+        default:
+          break;
+      }
 
       setRequestData((prevData) => ({
         ...prevData,
@@ -119,6 +130,17 @@ const Upload: React.FC = () => {
     } catch (error) {
       console.error('상품 등록 중 오류 발생:', error);
     }
+  };
+
+  const isFormValid = () => {
+    return (
+      requestData.content == '' ||
+      requestData.grade == '' ||
+      requestData.image == '' ||
+      requestData.too == '' ||
+      requestData.price == 0 ||
+      requestData.title == ''
+    );
   };
 
   return (
@@ -176,23 +198,14 @@ const Upload: React.FC = () => {
           <S.Category>원산지</S.Category>
           <S.Input
             placeholder="예) 경상북도 의성군"
-            value={requestData.origin}
-            onChange={(e) => inputChange('origin', e.target.value)}
-          />
-        </S.NameLayout>
-        <S.NameLayout>
-          <S.Category>판매수량 (낱개)</S.Category>
-          <S.Input
-            placeholder="예) 30"
-            type="number"
-            inputMode="numeric"
-            pattern="[0-9]*"
-            value={requestData.quantity}
-            onChange={(e) => inputChange('quantity', Number(e.target.value))}
+            value={requestData.too}
+            onChange={(e) => inputChange('too', e.target.value)}
           />
         </S.NameLayout>
       </S.InputsLayout>
-      <S.Submit onClick={onSubmit}>제출하기</S.Submit>
+      <S.Submit disabled={isFormValid()} onClick={onSubmit}>
+        제출하기
+      </S.Submit>
       <MenuBar />
     </S.Layout>
   );

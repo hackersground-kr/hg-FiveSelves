@@ -55,7 +55,7 @@ export const GoodsImgLayout = styled.div`
 `;
 export const GoodsImg = styled.img`
   width: 100%;
-  height: 100%;
+  height: 390px;
   object-fit: cover;
   display: block;
 `;

@@ -9,10 +9,8 @@ import Watermelon from 'assets/icon/Watermelon';
 import Fish from 'assets/icon/Fish';
 import Google from 'assets/icon/Google';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 
 const Auth = () => {
-  const history = useNavigate();
   return (
     <_.Auth_Layout>
       <_.Auth_Icons>

@@ -35,15 +35,10 @@ const GoodsDetail: React.FC = () => {
       });
   }, [id]);
 
-  const handleChange = (index: number) => {
-    setCurrentIndex(index);
-  };
-
   if (!goodsData) {
     return <div>상품을 찾을 수 없습니다.</div>;
   }
 
-  // 가격에 콤마 추가
   const formattedPrice = new Intl.NumberFormat('ko-KR').format(goodsData.price);
 
   return (
@@ -54,20 +49,10 @@ const GoodsDetail: React.FC = () => {
         </S.BackIconLayout>
       </S.GoodsHeader>
       <S.GoodsImgLayout>
-        <S.CustomCarousel>
-          <Carousel
-            showArrows={false}
-            autoPlay={true}
-            showThumbs={false}
-            selectedItem={currentIndex}
-            onChange={handleChange}
-            showStatus={false}
-          ></Carousel>
-        </S.CustomCarousel>
+        <S.MainSlide key={goodsData.image}>
+          <S.GoodsImg src={goodsData.image} alt={goodsData.title} />
+        </S.MainSlide>
       </S.GoodsImgLayout>
-      <S.MainSlide key={goodsData.image}>
-        <S.GoodsImg src={goodsData.image} alt={goodsData.title} />
-      </S.MainSlide>
       <S.GoodsInfo>
         <S.TitleNRating>
           <S.Rating>
