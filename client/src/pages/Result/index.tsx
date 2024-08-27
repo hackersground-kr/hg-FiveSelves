@@ -21,7 +21,7 @@ const Result = () => {
 
   useEffect(() => {
     axios
-      .get<AxiosDataType[]>(`http://211.112.175.88:8080/post`)
+      .get<AxiosDataType[]>(`https://211.112.175.88:8080/post`)
       .then((response) => {
         setAxiosData(response.data);
         console.log(response.data);

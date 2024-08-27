@@ -46,7 +46,7 @@ const Upload: React.FC = () => {
 
     try {
       const uploadResponse = await axios.post(
-        `http://211.112.175.88:8080/file/upload`,
+        `https://211.112.175.88:8080/file/upload`,
         formData
       );
 
