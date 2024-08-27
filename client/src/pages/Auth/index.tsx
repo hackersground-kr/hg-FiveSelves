@@ -8,8 +8,11 @@ import Apple from 'assets/icon/Apple';
 import Watermelon from 'assets/icon/Watermelon';
 import Fish from 'assets/icon/Fish';
 import Google from 'assets/icon/Google';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Auth = () => {
+  const history = useNavigate();
   return (
     <_.Auth_Layout>
       <_.Auth_Icons>
@@ -30,7 +33,12 @@ const Auth = () => {
         <Title />
         <_.Auth_Title_Explain>못난이 농수산물 거래 서비스</_.Auth_Title_Explain>
       </_.Auth_Title>
-      <_.Auth_Google_Button>
+      <_.Auth_Google_Button
+        onClick={async () => {
+          const data = await axios.get('http://211.112.175.88:8080/auth');
+          window.location.href = data?.data;
+        }}
+      >
         <Google />
         <_.Auth_Google_Title>구글 로그인</_.Auth_Google_Title>
       </_.Auth_Google_Button>

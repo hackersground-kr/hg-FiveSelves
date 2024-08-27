@@ -1,53 +1,50 @@
 /* eslint-disable */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import * as S from './style';
 import Bookmark from 'assets/icon/Bookmark';
 import BackIcon from 'assets/icon/BackIcon';
-import Tomato1 from 'assets/image/Tomato.png';
-import Tomato2 from 'assets/image/Tomato2.png';
-import Tomato3 from 'assets/image/Tomato3.png';
 import { Carousel } from 'react-responsive-carousel';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import axios from 'axios';
 
-const GoodsDetail = () => {
+interface AxiosDataType {
+  id: number;
+  title: string;
+  content: string;
+  image: string;
+  price: number;
+  grade: string | null;
+}
+
+const GoodsDetail: React.FC = () => {
   const navigate = useNavigate();
+  const { id } = useParams<{ id: string }>();
   const [currentIndex, setCurrentIndex] = useState(0);
-  const countData = [10, 30, 50, 100];
-  const goodsInfoData = [
-    { category: '상품번호', value: '9382837263529483' },
-    { category: '제조사', value: '할아버지 컴퍼니' },
-    { category: '상품상태', value: 'A등급' },
-    { category: '원산지', value: '충청남도 아산시' }
-  ];
-  const imageData = [
-    {
-      label: 'Image 1',
-      alt: 'image1',
-      url: Tomato1
-    },
+  const [goodsData, setGoodsData] = useState<AxiosDataType | null>(null);
 
-    {
-      label: 'Image 2',
-      alt: 'image2',
-      url: Tomato2
-    },
-
-    {
-      label: 'Image 3',
-      alt: 'image3',
-      url: Tomato3
-    }
-  ];
+  useEffect(() => {
+    axios
+      .get<AxiosDataType[]>(`http://211.112.175.88:8080/post`)
+      .then((response) => {
+        const data = response.data.find((item) => item.id === Number(id));
+        setGoodsData(data || null);
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error('데이터를 가져오는 중 오류 발생:', error);
+      });
+  }, [id]);
 
   const handleChange = (index: number) => {
     setCurrentIndex(index);
   };
 
-  const renderSlides = imageData.map((image) => (
-    <S.MainSlide key={image.alt}>
-      <S.GoodsImg src={image.url} alt={image.alt} />
-    </S.MainSlide>
-  ));
+  if (!goodsData) {
+    return <div>상품을 찾을 수 없습니다.</div>;
+  }
+
+  // 가격에 콤마 추가
+  const formattedPrice = new Intl.NumberFormat('ko-KR').format(goodsData.price);
 
   return (
     <S.Layout>
@@ -65,39 +62,32 @@ const GoodsDetail = () => {
             selectedItem={currentIndex}
             onChange={handleChange}
             showStatus={false}
-          >
-            {renderSlides}
-          </Carousel>
+          ></Carousel>
         </S.CustomCarousel>
       </S.GoodsImgLayout>
+      <S.MainSlide key={goodsData.image}>
+        <S.GoodsImg src={goodsData.image} alt={goodsData.title} />
+      </S.MainSlide>
       <S.GoodsInfo>
         <S.TitleNRating>
-          <S.Rating>A등급</S.Rating>
+          <S.Rating>
+            {goodsData.grade ? goodsData.grade : '등급 정보 없음'}등급
+          </S.Rating>
           <S.Price>
-            3,600<S.Semibold>원</S.Semibold>
+            {formattedPrice}
+            <S.Semibold>원</S.Semibold>
           </S.Price>
         </S.TitleNRating>
         <S.TitleLayout>
-          <S.KoreanTitle>할아버지가 직접 키운 토마토</S.KoreanTitle>
-          <S.EnglishTitle>Produce grown by my grandfather</S.EnglishTitle>
+          <S.KoreanTitle>{goodsData.title}</S.KoreanTitle>
+          <S.EnglishTitle>{goodsData.content}</S.EnglishTitle>
         </S.TitleLayout>
       </S.GoodsInfo>
       <S.CountWrapper>
         <S.CountLayout>
           <S.CountOption>수량</S.CountOption>
-          {countData.map((item) => (
-            <S.CountOption>{item}개</S.CountOption>
-          ))}
         </S.CountLayout>
       </S.CountWrapper>
-      <S.GoodsInfoDetail>
-        {goodsInfoData.map((item) => (
-          <S.Row>
-            <S.Attribute>{item.category}</S.Attribute>
-            <S.Content>{item.value}</S.Content>
-          </S.Row>
-        ))}
-      </S.GoodsInfoDetail>
       <S.GoodsFooter>
         <S.FooterContent>
           <Bookmark />
