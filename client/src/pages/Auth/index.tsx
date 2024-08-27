@@ -33,7 +33,7 @@ const Auth = () => {
       </_.Auth_Title>
       <_.Auth_Google_Button
         onClick={async () => {
-          const data = await axios.get('https://211.112.175.88:8080/auth');
+          const data = await axios.get('http://211.112.175.88:8080/auth');
           window.location.href = data?.data;
         }}
       >

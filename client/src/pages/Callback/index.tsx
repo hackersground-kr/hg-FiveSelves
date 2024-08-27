@@ -13,7 +13,7 @@ const Callback: React.FC = () => {
 
     if (accessToken) {
       axios
-        .post('https://211.112.175.88:8080/auth', { accessToken: accessToken })
+        .post('http://211.112.175.88:8080/auth', { accessToken: accessToken })
         .then((response) => {
           console.log(response);
           const { accessToken, refreshToken } = response.data;
