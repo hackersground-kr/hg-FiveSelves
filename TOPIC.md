@@ -40,10 +40,10 @@
 
 ## 제품 아키텍처 (이미지)
 <img src="https://github.com/hackersground-kr/hg-FiveSelves/blob/main/images/%EC%A0%9C%ED%92%88%20%EC%95%84%ED%82%A4%ED%85%8D%EC%B3%90.png?raw=true" alt="">
+<img src="https://github.com/hackersground-kr/hg-FiveSelves/blob/main/images/%EC%A0%9C%ED%92%88%EC%86%8C%EA%B0%9C%20%EC%8A%AC%EB%9D%BC%EC%9D%B4%EB%93%9C.png?raw=true" alt="">
 
 ## 제품 소개 슬라이드
-<img src="https://github.com/hackersground-kr/hg-FiveSelves/blob/main/images/%EC%A0%9C%ED%92%88%EC%86%8C%EA%B0%9C%20%EC%8A%AC%EB%9D%BC%EC%9D%B4%EB%93%9C.png?raw=true" alt="">
+[다섯가지자아 - 주르르 PPT.pdf](https://github.com/user-attachments/files/16755814/-.PPT.pdf)
 
 ## 제품 소개 동영상
 
-제품 또는 서비스를 소개하는 동영상을 YouTube와 같은 곳에 업로드하고 동영상 링크를 적어주세요.
