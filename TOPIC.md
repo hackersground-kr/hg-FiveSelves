@@ -39,10 +39,12 @@
     - 소비자가 원하는 채소와 과일을 직접 선택할 수 있는 맞춤형 구매 시스템을 통해, 소비자들이 불필요한 품목을 받지 않고 필요로 하는 상품만을 구매할 수 있습니다. 이로 인해 소비자 만족도가 크게 향상될 것입니다.
 
 ## 제품 아키텍처 (이미지)
-<img src="https://github.com/hackersground-kr/hg-FiveSelves/blob/main/images/%EC%A0%9C%ED%92%88%20%EC%95%84%ED%82%A4%ED%85%8D%EC%B3%90.png?raw=true" alt="">
-<img src="https://github.com/hackersground-kr/hg-FiveSelves/blob/main/images/%EC%A0%9C%ED%92%88%EC%86%8C%EA%B0%9C%20%EC%8A%AC%EB%9D%BC%EC%9D%B4%EB%93%9C.png?raw=true" alt="">
+![26](https://github.com/user-attachments/assets/4d8e6821-efea-4a96-ad2b-e239f57b7187)
+![25](https://github.com/user-attachments/assets/eaaae9b8-9bea-41a0-bd8a-e261ec27dfb0)
 
 ## 제품 소개 슬라이드
+<img src="https://github.com/hackersground-kr/hg-FiveSelves/blob/main/images/%EC%A0%9C%ED%92%88%20%EC%95%84%ED%82%A4%ED%85%8D%EC%B3%90.png?raw=true" alt="">
+<img src="https://github.com/hackersground-kr/hg-FiveSelves/blob/main/images/%EC%A0%9C%ED%92%88%EC%86%8C%EA%B0%9C%20%EC%8A%AC%EB%9D%BC%EC%9D%B4%EB%93%9C.png?raw=true" alt="">
 [다섯가지자아 - 주르르 PPT.pdf](https://github.com/user-attachments/files/16755814/-.PPT.pdf)
 
 ## 제품 소개 동영상
