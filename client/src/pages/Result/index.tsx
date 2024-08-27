@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import * as _ from './style';
 import SearchBar from 'components/SearchBar';
 import MenuBar from 'components/MenuBar';
-import { itemList } from 'data/itemList';
 import Product from 'components/Product';
 import axios from 'axios';
 
@@ -16,7 +15,7 @@ interface AxiosDataType {
 }
 
 const Result = () => {
-  const { product } = useParams<{ product: string }>(); // URL에서 product 파라미터를 가져옴
+  const { product } = useParams<{ product: string }>();
   const [searchInput, setSearchInput] = useState('');
   const [axiosData, setAxiosData] = useState<AxiosDataType[]>([]);
 
@@ -34,7 +33,6 @@ const Result = () => {
 
   console.log(axiosData);
 
-  // URL에서 가져온 product 값으로 searchInput 초기화
   useEffect(() => {
     if (product) {
       setSearchInput(product);
