@@ -88,6 +88,7 @@ const GoodsDetail = () => {
           {countData.map((item) => (
             <S.CountOption>{item}개</S.CountOption>
           ))}
+          <S.CountOption>직접 입력</S.CountOption>
         </S.CountLayout>
       </S.CountWrapper>
       <S.GoodsInfoDetail>

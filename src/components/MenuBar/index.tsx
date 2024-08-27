@@ -15,9 +15,9 @@ const MenuBar = ({ selectState, setSelectState }: MenuBarProps) => {
   const navigate = useNavigate();
   const menuItems = [
     { id: 1, label: '홈', Icon: Home, location: '/' },
-    { id: 2, label: '등록하기', Icon: Register, location: '/' },
-    { id: 3, label: '알림', Icon: Alarm, location: '/' },
-    { id: 4, label: '프로필', Icon: Profile, location: '/' }
+    { id: 2, label: '등록하기', Icon: Register, location: '/upload' },
+    { id: 3, label: '알림', Icon: Alarm, location: '/notification' },
+    { id: 4, label: '프로필', Icon: Profile, location: '/profile' }
   ];
 
   const onTabClick = (id: number, location: string) => {
